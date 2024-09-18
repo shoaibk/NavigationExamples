@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -49,13 +50,21 @@ export default function App() {
           <Tab.Screen
             name="Home"
             component={HomeScreen}
-            // options={{
-            //   tabBarIcon: ({ focus, size, color }) => (
-            //     <Ionicons name={"home-outline"} size={size} color={color} />
-            //   ),
-            // }}
+            options={{
+              tabBarIcon: ({ focus, size, color }) => (
+                <Ionicons name={"home-outline"} size={size} color={color} />
+              ),
+            }}
           />
-          <Tab.Screen name="Details" component={DetailsScreen} />
+          <Tab.Screen
+            name="Details"
+            component={DetailsScreen}
+            options={{
+              tabBarIcon: ({ focus, size, color }) => (
+                <Ionicons name={"albums-outline"} size={size} color={color} />
+              ),
+            }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
